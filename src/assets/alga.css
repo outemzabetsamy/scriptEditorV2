@@ -1,0 +1,124 @@
+.editor,
+.text\:editor {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  overflow-wrap: break-word;
+  background-color: rgba(255, 255, 255, 0.75);
+  background-clip: border;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.text\:editor {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  
+  }
+  .text\:editor > * {
+    width: 100%;
+  }
+
+
+  .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125)}
+  .editor-toolbar.select {
+      border: none;
+    }
+    .editor-content {
+      padding: 0.25rem 1rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: auto;
+      width: auto;
+      margin-top: 50px;
+      margin-bottom: 30px;
+      margin-left: 30px;
+      margin-right: 30px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .text\:editor.editor-statusbar {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid rgba(0, 0, 0, 0.125);
+    }
+    .editor-divider {
+      margin: 0;
+      background: rgba(0, 0, 0, 0.125);
+      padding-top: 20px;
+      padding-right: 0.5px;
+      padding-bottom: 20px;
+      padding-left: 0.5px;
+    }
+    .block\:editor {
+      border: 1px solid rgba(0, 0, 0, 0.125)
+    }
+
+    .editor-toolbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 6;
+      }
+    
+     
+
+      .block\:editor.editor-mover {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 6;
+      }
+
+      .block\:editor.editor-breadcrumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 6;
+      }
+      .block\:editor.editor-inserter {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 6;
+      }
+      .underline\:text {
+        text-decoration: underline;
+      }
+      .bold\:text {
+        font-weight: bold;
+      }
+      .italic\:text {
+        font-style: italic;
+      }
+      .strikethrough\:text {
+        text-decoration: line-through;
+      }
+      .dialog\:text{
+        margin-left: 30%;
+      }
+      .center\:text {
+      text-align: center;
+      }
+      .right\:text {
+        text-align: right;
+        }
+        .left\:text {
+          text-align: left;
+          }
+      .editor-toolbar {
+            margin-bottom: 20px;
+      }
+      #testing {
+        width: 200px;
+        height: 200px;
+        border: 1px solid;
+        margin-top: 20px;
+      }
+      
