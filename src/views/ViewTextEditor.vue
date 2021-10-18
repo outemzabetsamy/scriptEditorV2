@@ -6,7 +6,7 @@
       <EditorContent v-model="documentModel" :type="selectedType" :toggles="selectedToggles" :wrap="selectedWrap" @keydown.enter.prevent="addContent" @contextmenu="onEditorRightClick"/>
    
       
-        <ContextMenu ref="menu" :model="items" />
+        <ContextMenu ref="menu" :model="items" @click="menuItemSelected($event,item)" />
       
       
     <!--
@@ -30,7 +30,7 @@ export default {
 name:'ViewTextEditor',
 data(){
     return{
-        items:[{label:"one"},{label:"two"},{label:"three"},{label:"four"},{label:"five"},],
+        items:[{label:"scene", items:[{label:"INT."},{label:"EXT."},{label:"INT/EXT."},{label:"EXT/INT."},]},{label:"action"},{label:"personnage"},{label:"dialog"},{label:"update"},],
         selectedType: 'p',
         selectedToggles:[],
         selectedWrap:'',
@@ -74,6 +74,13 @@ methods:{
         console.log("this.$refs")
         console.log(this.$refs)
         this.$refs.menu.show(event);
+        console.log(event)
+    },
+    menuItemSelected(event){
+        console.log("eveent ")
+        console.log(event.target.childNodes[1].innerText)
+        this.emitter.emit("selectedButton",{type:event.target.childNodes[1].innerText})
+        
     },
 }
 }

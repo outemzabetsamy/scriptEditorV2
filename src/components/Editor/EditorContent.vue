@@ -162,6 +162,8 @@ export default {
           console.log("rangeId");
           console.log(rangeId);
           this.targetedId=rangeId;
+          let t=rangeId.split("-")
+          this.setType(t[0])
           console.log("index of element containing rangeId");
           console.log(this.selectedBlock)
           console.log("rangeId");
@@ -218,7 +220,13 @@ export default {
     this.emitter.on("selectedButton",e=>{
       
       this.AddScene(e.type);
+      if(e.type==="INT."||e.type==="EXT."||e.type==="EXT/INT."||e.type==="INT/EXT."){
+        this.typee="scene";
+      }else{
+
+      
      this.typee=e.type;
+    }
     });
 
      this.emitter.on("keyEntered",e=>{
@@ -272,7 +280,7 @@ export default {
         // `block-${this.document.length + 1}-${$char.random(5)}`
         this.document.splice(this.selectedBlock?this.selectedBlock+1:this.document.length+1,0,
         {id:`${this.document.length + 1}`,insert:'div',content:[{id:`title-${this.selectedBlock?this.selectedBlock+1:this.document.length+1}-${$char.random(5)}`
-        ,insert:'div',content:`${this.selectedBlock?this.selectedBlock+2:this.document.length+1} `,attrs:{align:'left',bold:true}}],attrs:{align:'left',bold:true}})
+        ,insert:'div',content:`${this.selectedBlock?this.selectedBlock+2:this.document.length+1} \xa0`,attrs:{align:'left',bold:true}}],attrs:{align:'left',bold:true}})
       }
 
       if(scene ==='action'){
@@ -338,13 +346,48 @@ export default {
         this.docToScenes();
       }
       
-      
+      if(scene ==='INT.'){
+        // `block-${this.document.length + 1}-${$char.random(5)}`
+        this.document.splice(this.selectedBlock?this.selectedBlock+1:this.document.length+1,0,
+        {id:`${this.document.length + 1}`,insert:'div',content:[{id:`title-${this.selectedBlock?this.selectedBlock+1:this.document.length+1}-${$char.random(5)}`
+        ,insert:'div',content:`${this.selectedBlock?this.selectedBlock+2:this.document.length+1} \xa0 INT.`,attrs:{align:'left',bold:true}}],attrs:{align:'left',bold:true}})
+      }
+
+      if(scene ==='EXT.'){
+        // `block-${this.document.length + 1}-${$char.random(5)}`
+        this.document.splice(this.selectedBlock?this.selectedBlock+1:this.document.length+1,0,
+        {id:`${this.document.length + 1}`,insert:'div',content:[{id:`title-${this.selectedBlock?this.selectedBlock+1:this.document.length+1}-${$char.random(5)}`
+        ,insert:'div',content:`${this.selectedBlock?this.selectedBlock+2:this.document.length+1} \xa0 EXT.`,attrs:{align:'left',bold:true}}],attrs:{align:'left',bold:true}})
+      }
+
+       if(scene ==='EXT/INT.'){
+        // `block-${this.document.length + 1}-${$char.random(5)}`
+        this.document.splice(this.selectedBlock?this.selectedBlock+1:this.document.length+1,0,
+        {id:`${this.document.length + 1}`,insert:'div',content:[{id:`title-${this.selectedBlock?this.selectedBlock+1:this.document.length+1}-${$char.random(5)}`
+        ,insert:'div',content:`${this.selectedBlock?this.selectedBlock+2:this.document.length+1} \xa0 EXT/INT.`,attrs:{align:'left',bold:true}}],attrs:{align:'left',bold:true}})
+      }
+        if(scene ==='INT/EXT.'){
+        // `block-${this.document.length + 1}-${$char.random(5)}`
+        this.document.splice(this.selectedBlock?this.selectedBlock+1:this.document.length+1,0,
+        {id:`${this.document.length + 1}`,insert:'div',content:[{id:`title-${this.selectedBlock?this.selectedBlock+1:this.document.length+1}-${$char.random(5)}`
+        ,insert:'div',content:`${this.selectedBlock?this.selectedBlock+2:this.document.length+1} \xa0 INT/EXT.`,attrs:{align:'left',bold:true}}],attrs:{align:'left',bold:true}})
+      }
 
       
      
       
     },
-
+    setType(type){
+      if(type==="title"){
+        this.typee="scene";
+      }else if(type==="action"){
+        this.typee="action";
+      }else if(type==="personnage"){
+        this.typee="personnage";
+      }else if(type==="text_replique"){
+        this.typee="dialog";
+      }
+    },
     setDocumentModel(){
       this.document=[];
       console.log("ikechmed ar setDocumentModel")
